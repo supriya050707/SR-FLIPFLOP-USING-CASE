@@ -55,13 +55,18 @@ Developed by: supriya S J
 
 RegisterNumber:24001109
 */
+
 module exp6(S,R,clk,Q,Qbar); 
 
-input S,R,clk; output reg Q; 
+input S,R,clk; 
+
+output reg Q; 
 
 output reg Qbar;
 
-initial Q=0; initial Qbar=1; 
+initial Q=0; 
+
+initial Qbar=1; 
 
 always @(posedge clk) 
 
@@ -69,11 +74,11 @@ begin
 
 Q=S|((~R)&Q); 
 
-Qbar=R|((~S) &
+Qbar=R|((~S) &(Qbar)); 
 
-(Qbar)); 
+end 
 
-end endmodule
+endmodule
 
 **RTL LOGIC FOR FLIPFLOPS**
 
